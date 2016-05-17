@@ -1,0 +1,97 @@
+.Serie{
+	width:80%;
+	margin: 30px auto;
+	&-ContImg{
+		width: 100%;
+	}
+	&-Img{
+		width:  100%;
+	}
+	&-Titulo{
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	&-Descripcion{
+		padding: 10px 0px;
+		text-align: justify;
+	}
+	&-Botonera{
+		display: flex;
+		justify-content: flex-end;
+		align-items:center;
+	}
+	&-ComicTitulo{
+		text-align: center;
+		display: block;
+	}
+	&-Comic{
+		width:80%;
+		margin: 30px auto;
+		@media screen and(min-width:700px)
+		{
+			width: 40%;
+		}
+		@media screen and(min-width:920px)
+		{
+			width: 30%;
+		}
+	}
+	&-ContInformacion{
+		max-height: 90000px;
+		overflow: hidden;
+		transition: 0.5s;
+		display: flex;
+		flex-direction: column;
+		@media screen and(min-width:700px)
+		{
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		&.Hide{
+			max-height: 0px; 
+		}
+	}
+	&-InformacionTitulo{
+		background-color: $jamon;
+		box-shadow: 0px 2px 2px darken($jamon,10);
+		color: $blanco;
+		cursor: pointer;
+		font-weight:  bold;
+		line-height: 30px;
+		margin-top: 5px;
+		padding-left:10px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items:center;
+		&.Active{
+			.Serie-InformacionCheck:after{
+				content: "";
+				position:absolute;
+				height: 15px;
+				width: 5px;
+				top: -5px;
+				right: 5%;
+				transform: rotate(40deg);
+				border-bottom: 3px solid $violeta;
+				border-right: 3px solid $violeta;
+			}
+		}
+	}
+	&-InformacionCheck{
+		position:relative;
+		height: 15px;
+		width: 15px;
+		margin-right: 20px;
+		background-color: $blanco;
+	}
+	&-ComicImg{
+		width: 100%;
+	}
+}
+
+.Loader{
+	text-align:center;
+	margin-top:20px;
+}

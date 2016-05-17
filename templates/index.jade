@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+html(lang="en",ng-app="heroes")
+head
+	meta(charset="UTF-8")
+	meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+	title Super Heroes    
+	link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lato")
+	link(rel="stylesheet", href="estilos.css")
+	body
+		header.Header
+			.Header-Cont(menu-show="")
+				span.Header-Line
+				span.Header-Line
+				span.Header-Line
+		include Navegacion.jade
+		section(ui-view="")
+			//include Buscador.jade
+
+			
+
+
+		
+		script(src="node_modules/jquery/dist/jquery.min.js")
+		script(src="libs/hammer.js")
+		script(src="libs/jquery.hammer.js")
+		script(src="node_modules/angular/angular.min.js")
+		script(src="node_modules/angular-ui-router/release/angular-ui-router.min.js")
+		script(src="app.js")

@@ -1,0 +1,89 @@
+.Buscador{
+	width:90%;
+	margin: 0 auto;
+	&-ContCampo{
+		width: 100%;
+		position:relative;
+		background-color: $mango;
+	}
+	&-Etiqueta{
+		position:relative;
+		top: 6px;
+		transition: 0.3s;
+		width: 100%;
+		display: block;
+		font-size: 16px;
+    	color: $negro;
+    	font-weight: bold;
+    	margin-bottom: 20px;
+		span{
+			position:absolute;
+			right: 0;
+			display:  inline-block;
+			vertical-align: top;
+			background-color: $rojo;
+			color:$blanco;
+			text-align: center;
+			cursor: pointer;
+			line-height: 25px;
+			border-radius:50%;
+			height: 25px;
+			width: 25px;
+			bottom:0px;
+			box-shadow: 0px 2px 2px darken($rojo,10);
+		}
+	}
+	&-Campo{
+		width: 100%;
+		height: 30px;
+		padding-left: 10px;
+		border:none;
+		outline:  none;
+		border-radius:4px;
+		border-bottom: 2px solid $rojo;
+	}
+	&-Series{
+		width:  100%;
+	}	
+	&-Item{
+		width: 100%;
+		list-style: none;
+		background-color: $jamon;
+		margin-top: 5px;
+		cursor: pointer;
+		line-height: 30px;
+		padding-left:10px;
+		color: $blanco;
+		text-align: left;
+		box-shadow: 0px 2px 2px darken($jamon,10);
+	}
+	&-Botonera{
+		text-align: right;
+		padding: 5px 0px;
+	}
+	&-Search{
+		background-color: $jamon;
+		color:$blanco;
+		border:none;
+		font-size: 20px;
+		border-radius:4px;
+		width: 80px;
+		display:  inline-block;
+		height: 35px;
+		line-height: 26px;
+		text-align:center;
+		cursor: pointer;
+		box-shadow: inset 0px -4px darken($jamon,10);
+		&:hover{
+			line-height: 35px;
+			box-shadow: inset 0px -35px darken($jamon,10);
+		}
+	}
+	&-Sugerencia{
+		text-align: center;
+		margin-bottom:10px;
+	}
+	&-SugerenciaTitle{
+		font-size: 16px;
+	}
+}

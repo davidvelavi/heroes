@@ -1,0 +1,254 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif; }
+
+.Navegacion {
+  background-color: #D90D3D;
+  width: 0%;
+  position: fixed;
+  top: 45px;
+  left: 0px;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px #a90a2f; }
+  .Navegacion.is-Active {
+    width: 100%;
+    transition: 0.3s; }
+  .Navegacion-Item {
+    width: 100%;
+    list-style: none; }
+  .Navegacion-Link {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    padding-left: 10px;
+    position: relative; }
+    .Navegacion-Link span {
+      position: relative;
+      z-index: 1; }
+    .Navegacion-Link:after {
+      content: "";
+      position: absolute;
+      width: 5px;
+      background-color: #a90a2f;
+      top: 0;
+      transition: 0.3s;
+      left: 0;
+      height: 100%; }
+    .Navegacion-Link.is-Active:after, .Navegacion-Link:hover:after {
+      width: 100%; }
+
+.Header {
+  height: 45px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #D90D3D;
+  box-shadow: 0px 2px 2px #a90a2f;
+  z-index: 1; }
+  .Header-Cont {
+    background-color: #FB933C;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    width: 35px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 20px;
+    transition: 0.5s; }
+    .Header-Cont.is-Active {
+      transform: rotate(360deg); }
+      .Header-Cont.is-Active .Header-Line:nth-child(1), .Header-Cont.is-Active .Header-Line:nth-child(3) {
+        width: 40%; }
+      .Header-Cont.is-Active .Header-Line:nth-child(1) {
+        transform: rotate(-45deg);
+        right: 7px;
+        top: 4px; }
+      .Header-Cont.is-Active .Header-Line:nth-child(3) {
+        transform: rotate(45deg);
+        right: 7px;
+        top: -4px; }
+  .Header-Line {
+    background-color: #fff;
+    display: block;
+    height: 4px;
+    position: relative;
+    transition: 0.5s;
+    width: 70%;
+    border-radius: 4px; }
+    .Header-Line:nth-child(2) {
+      margin: 5px 0px; }
+
+.Buscador {
+  width: 90%;
+  margin: 0 auto; }
+  .Buscador-ContCampo {
+    width: 100%;
+    position: relative;
+    background-color: #FB933C; }
+  .Buscador-Etiqueta {
+    position: relative;
+    top: 6px;
+    transition: 0.3s;
+    width: 100%;
+    display: block;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px; }
+    .Buscador-Etiqueta span {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      vertical-align: top;
+      background-color: #D90D3D;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      line-height: 25px;
+      border-radius: 50%;
+      height: 25px;
+      width: 25px;
+      bottom: 0px;
+      box-shadow: 0px 2px 2px #a90a2f; }
+  .Buscador-Campo {
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    border-bottom: 2px solid #D90D3D; }
+  .Buscador-Series {
+    width: 100%; }
+  .Buscador-Item {
+    width: 100%;
+    list-style: none;
+    background-color: #D54544;
+    margin-top: 5px;
+    cursor: pointer;
+    line-height: 30px;
+    padding-left: 10px;
+    color: #fff;
+    text-align: left;
+    box-shadow: 0px 2px 2px #bc2b2a; }
+  .Buscador-Botonera {
+    text-align: right;
+    padding: 5px 0px; }
+  .Buscador-Search {
+    background-color: #D54544;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    border-radius: 4px;
+    width: 80px;
+    display: inline-block;
+    height: 35px;
+    line-height: 26px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: inset 0px -4px #bc2b2a; }
+    .Buscador-Search:hover {
+      line-height: 35px;
+      box-shadow: inset 0px -35px #bc2b2a; }
+  .Buscador-Sugerencia {
+    text-align: center;
+    margin-bottom: 10px; }
+  .Buscador-SugerenciaTitle {
+    font-size: 16px; }
+
+.Serie {
+  width: 80%;
+  margin: 30px auto; }
+  .Serie-ContImg {
+    width: 100%; }
+  .Serie-Img {
+    width: 100%; }
+  .Serie-Titulo {
+    font-size: 20px;
+    margin-bottom: 10px; }
+  .Serie-Descripcion {
+    padding: 10px 0px;
+    text-align: justify; }
+  .Serie-Botonera {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+  .Serie-ComicTitulo {
+    text-align: center;
+    display: block; }
+  .Serie-Comic {
+    width: 80%;
+    margin: 30px auto; }
+    @media screen and (min-width: 700px) {
+      .Serie-Comic {
+        width: 40%; } }
+    @media screen and (min-width: 920px) {
+      .Serie-Comic {
+        width: 30%; } }
+  .Serie-ContInformacion {
+    max-height: 90000px;
+    overflow: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column; }
+    @media screen and (min-width: 700px) {
+      .Serie-ContInformacion {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between; } }
+    .Serie-ContInformacion.Hide {
+      max-height: 0px; }
+  .Serie-InformacionTitulo {
+    background-color: #D54544;
+    box-shadow: 0px 2px 2px #bc2b2a;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 30px;
+    margin-top: 5px;
+    padding-left: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .Serie-InformacionTitulo.Active .Serie-InformacionCheck:after {
+      content: "";
+      position: absolute;
+      height: 15px;
+      width: 5px;
+      top: -5px;
+      right: 5%;
+      transform: rotate(40deg);
+      border-bottom: 3px solid #230047;
+      border-right: 3px solid #230047; }
+  .Serie-InformacionCheck {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    margin-right: 20px;
+    background-color: #fff; }
+  .Serie-ComicImg {
+    width: 100%; }
+
+.Loader {
+  text-align: center;
+  margin-top: 20px; }
+
+body {
+  font-size: 16px;
+  min-height: 100vh;
+  background-color: #FB933C; }
+
+.Contenedor {
+  margin-top: 100px; }

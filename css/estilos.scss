@@ -1,0 +1,22 @@
+*{
+	padding:0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+}
+
+
+@import "Colores.scss";
+@import "Navegacion/Navegacion.scss";
+@import "Buscador/Buscador.scss";
+@import "Serie/Serie.scss";
+
+
+body{
+	font-size: 16px;
+	min-height:100vh;
+	background-color: $mango;
+}
+.Contenedor{
+	margin-top: 100px;
+}

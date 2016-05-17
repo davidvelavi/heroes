@@ -1,0 +1,110 @@
+.Navegacion{
+	background-color: $rojo;
+	width: 0%;
+	position:fixed;
+	top:45px;
+	left:0px;
+	z-index:1;
+	overflow: hidden;
+	box-shadow: 0px 2px 2px darken($rojo,10);
+	&.is-Active{
+		width: 100%;
+		transition:0.3s;
+	}
+	&-Item{
+		width: 100%;
+		list-style: none;
+	}
+	&-Link{
+		width: 100%;
+		display: block;
+		text-decoration: none;
+		height: 40px;
+		line-height: 40px;
+		color:$blanco;
+		padding-left: 10px;
+		position:relative;
+		span{
+			position:relative;
+			z-index: 1;
+		}
+		&:after{
+			content: "";
+			position:absolute;
+			width:  5px;
+			background-color: darken($rojo,10);
+			top:0;
+			transition: 0.3s;
+			left: 0;
+			height:  100%;
+		}
+		&.is-Active,
+		&:hover{
+			&:after{
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+.Header{
+	height:45px;
+	width:100%;
+	position:fixed;
+	top:0;
+	display:flex;
+	justify-content: flex-end;
+	align-items: center;
+	background-color: $rojo;
+	box-shadow: 0px 2px 2px darken($rojo,10);
+	z-index:1;
+	&-Cont{
+		background-color: $mango;
+		height: 35px;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		display: flex;
+		width: 35px;
+		cursor: pointer;
+		border-radius: 4px;
+		margin-right: 20px;
+		transition: 0.5s;
+		&.is-Active{
+			transform: rotate(360deg);
+			.Header-Line{
+				&:nth-child(1),
+				&:nth-child(3){
+					width: 40%;
+				}
+				&:nth-child(1){
+					transform: rotate(-45deg);
+					right: 7px;
+					top: 4px;
+				}
+				&:nth-child(3){
+					transform: rotate(45deg);
+					right: 7px;
+					top: -4px;
+				}
+
+			}
+		}
+	}
+	&-Line{
+		background-color: $blanco;
+		display: block;
+		height: 4px;
+		position:relative;
+		transition: 0.5s;
+		width: 70%;
+		border-radius: 4px;
+		&:nth-child(2)
+		{
+			margin: 5px 0px;
+		}
+
+	}
+	
+}

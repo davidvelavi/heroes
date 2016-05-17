@@ -1,0 +1,40 @@
+
+<div class="Contenedor">
+  <section class="Buscador">
+    <section class="Buscador-ContCampo">
+      <label for="Buscador-Campo" class="Buscador-Etiqueta is-Active">
+         
+        Busca un heroe de marvel<span ng-click="ShowSugerencia()">?</span>
+      </label>
+      <ul ng-show="mostrarSugerencia" class="Buscador-Sugerencia">
+        <p class="Buscador-SugerenciaTitle">Sugenrencias</p>
+        <li ng-repeat="super in series" ng-click="Elegido(super.name)" class="Buscador-Item">{{super.name}}</li>
+      </ul>
+      <input id="Buscador-Campo" type="text" ng-model="serie" class="Buscador-Campo"/>
+      <section class="Buscador-Botonera"><span ng-click="Peticion(serie)" class="Buscador-Search">buscar</span></section>
+    </section><loader visualiza="VisualizarLoader1"></loader>
+    <p ng-show="ShowMensaje" class="Buscador-Mensaje">{{Mensaje}}</p>
+  </section>
+  <section ng-repeat="marvel in SerieMarvel" class="Serie">
+    <figure class="Serie-ContImg"><img ng-src="{{marvel.imagen}}" alt="" class="Serie-Img"/></figure>
+    <figcaption class="Serie-Descripcion"> 
+      <p class="Serie-Titulo">{{marvel.titulo}}</p>{{marvel.descripcion}}
+    </figcaption>
+    <section class="Serie-Informacion">
+      <p abrir="abrir" class="Serie-InformacionTitulo">Comics <span class="Serie-InformacionCheck"></span></p>
+      <section class="Serie-ContInformacion Hide">
+        <article ng-repeat="comic in comicsDavid" class="Serie-Comic">
+          <figure class="Serie-ComicContImg"><img ng-src="{{comic.imagen}}" alt="" class="Serie-ComicImg"/></figure>
+          <figcation class="Serie-ComicTitulo">{{comic.titulo}}</figcation>
+        </article>
+      </section>
+      <p abrir="abrir" class="Serie-InformacionTitulo">Series <span class="Serie-InformacionCheck"></span></p>
+      <section class="Serie-ContInformacion Hide">
+        <article ng-repeat="serie in serieDavid" class="Serie-Comic">
+          <figure class="Serie-ComicContImg"><img ng-src="{{serie.imagen}}" alt="" class="Serie-ComicImg"/></figure>
+          <figcation class="Serie-ComicTitulo">{{serie.titulo}}	</figcation>
+        </article>
+      </section>
+    </section>
+  </section>
+</div>

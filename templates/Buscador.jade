@@ -1,0 +1,38 @@
+.Contenedor
+	section.Buscador
+		section.Buscador-ContCampo
+			label.Buscador-Etiqueta.is-Active(for="Buscador-Campo") 
+				|Busca un heroe de marvel
+				span(ng-click="ShowSugerencia()") ?
+			ul.Buscador-Sugerencia(ng-show="mostrarSugerencia")
+				p.Buscador-SugerenciaTitle Sugenrencias
+				li.Buscador-Item(ng-repeat="super in series",ng-click="Elegido(super.name)"){{super.name}}
+
+			input.Buscador-Campo#Buscador-Campo(type="text",ng-model="serie")
+			section.Buscador-Botonera
+				span(ng-click="Peticion(serie)").Buscador-Search buscar
+
+		<loader visualiza="VisualizarLoader1"></loader>
+		p.Buscador-Mensaje(ng-show="ShowMensaje") {{Mensaje}}
+
+	section.Serie(ng-repeat="marvel in SerieMarvel")
+		figure.Serie-ContImg
+			img.Serie-Img(ng-src="{{marvel.imagen}}", alt="")
+		figcaption.Serie-Descripcion 
+			p.Serie-Titulo {{marvel.titulo}}
+			|{{marvel.descripcion}}
+		section.Serie-Informacion
+			p.Serie-InformacionTitulo(abrir) Comics 
+				span.Serie-InformacionCheck
+			section.Serie-ContInformacion.Hide
+				article.Serie-Comic(ng-repeat="comic in comicsDavid")
+					figure.Serie-ComicContImg
+						img.Serie-ComicImg(ng-src="{{comic.imagen}}", alt="")
+					figcation.Serie-ComicTitulo {{comic.titulo}}
+			p.Serie-InformacionTitulo(abrir) Series 
+				span.Serie-InformacionCheck
+			section.Serie-ContInformacion.Hide
+				article.Serie-Comic(ng-repeat="serie in serieDavid")
+					figure.Serie-ComicContImg
+						img.Serie-ComicImg(ng-src="{{serie.imagen}}", alt="")
+					figcation.Serie-ComicTitulo {{serie.titulo}}	
