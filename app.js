@@ -13,8 +13,10 @@ var modulo = angular.module("heroes",["ui.router"]);
 							{name:'peter parker'}
 						];
 
+		var ts="?ts=1";
 		var url = "http://gateway.marvel.com:80/v1/public/characters?name=";
 		var clave = "&apikey=0cdf30383014ad1a8efffdf602784007";
+		var hash = "&hash=06edebebd0b546ebc836d8e4e1cdf0c9";
 		$scope.SerieMarvel = [];
 		var serieMarvel = {};
 		$scope.comicsDavid = [];
@@ -36,7 +38,7 @@ var modulo = angular.module("heroes",["ui.router"]);
 			{
 				$scope.VisualizarLoader1 = true;
 				$scope.ShowMensaje = false;
-				busquedaFactory.busquedaPersonaje(url+serie+clave).success(function(resp){
+				busquedaFactory.busquedaPersonaje(url+serie+ts+clave+hash).success(function(resp){
 					//console.log(resp)
 					$scope.SerieMarvel = [];
 					if(resp.data.count > 0)
@@ -56,11 +58,11 @@ var modulo = angular.module("heroes",["ui.router"]);
 							$scope.ShowMensaje = false;
 							for(var j = 0; j< comic.length; j++)
 							{
-								arregloComics.push($http.get(comic[j].resourceURI +"?"+"apikey=0cdf30383014ad1a8efffdf602784007"));
+								arregloComics.push($http.get(comic[j].resourceURI+ts+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 							for(var j = 0; j< serie.length; j++)
 							{
-								arregloSeries.push($http.get(serie[j].resourceURI +"?"+"apikey=0cdf30383014ad1a8efffdf602784007"));
+								arregloSeries.push($http.get(serie[j].resourceURI+ts+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 
 							busquedaFactory.busquedaComics(arregloComics).then(function(comics){
