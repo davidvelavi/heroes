@@ -1,6 +1,6 @@
 (function(){
 
-	var BusquedaController = function($scope,busquedaFactory,$http,md5){
+	var BusquedaController = function($scope,busquedaFactory,$http,md5,$window){
 		$scope.series = [{name:'avengers'},
 							{name:'fantastic four'},
 							{name:'hulk'},
@@ -8,6 +8,7 @@
 							{name:'thor'},
 							{name:'peter parker'}
 						];
+		$window.scrollTo(0, 0);
 
 		var d = new Date();
 		var n = Math.round(Date.now()/1000);
@@ -59,18 +60,15 @@
 							var serie = item.series.items;
 							$scope.VisualizarLoader1 = false;
 							$scope.ShowMensaje = false;
-							console.log(comic[0].resourceURI.split("comics"))
 							for(var j = 0; j< comic.length; j++)
 							{
-								var ruta = comic[j].resourceURI.split("comics");
-								var rutaUrl =ruta[0]+"comics"+ruta[1]+ts+"&"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash;
-
-								arregloComics.push($http.get(rutaUrl));
+								
+								arregloComics.push($http.get(comic[j].resourceURI+ts+"&"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 
 							for(var j = 0; j< serie.length; j++)
 							{
-								arregloSeries.push($http.get(serie[j].resourceURI+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
+								arregloSeries.push($http.get(serie[j].resourceURI+ts+"&"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 
 							busquedaFactory.busquedaComics(arregloComics).then(function(comics){
