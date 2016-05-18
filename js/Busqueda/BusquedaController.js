@@ -61,11 +61,11 @@
 							$scope.ShowMensaje = false;
 							for(var j = 0; j< comic.length; j++)
 							{
-								arregloComics.push($http.get(comic[j].resourceURI+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"));
+								arregloComics.push($http.get(comic[j].resourceURI+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 							for(var j = 0; j< serie.length; j++)
 							{
-								arregloSeries.push($http.get(serie[j].resourceURI+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"));
+								arregloSeries.push($http.get(serie[j].resourceURI+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 
 							busquedaFactory.busquedaComics(arregloComics).then(function(comics){
