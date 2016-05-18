@@ -1,6 +1,6 @@
 (function(){
 
-	var BusquedaController = function($scope,busquedaFactory,$http){
+	var BusquedaController = function($scope,busquedaFactory,$http,md5){
 		$scope.series = [{name:'avengers'},
 							{name:'fantastic four'},
 							{name:'hulk'},
@@ -8,11 +8,19 @@
 							{name:'thor'},
 							{name:'peter parker'}
 						];
-		//console.log(Date())
-		var ts="?ts=16:26:30";
+
+		var d = new Date();
+		var n = d.getTime();
+
+		
+		var ts="?ts="+n;
 		var url = "http://gateway.marvel.com:80/v1/public/characters?name=";
+		var priv = "7e467f50bbd57233bae233db88606e9f220f7674";
+		var publica = "0cdf30383014ad1a8efffdf602784007";
 		var clave = "&apikey=0cdf30383014ad1a8efffdf602784007";
-		var hash = "&hash=7c9f8e2ab3a58de3dd6bf02ffdbcfd73";
+
+		var hash = "&hash="+md5.createHash(n+priv+publica);
+		console.log(hash)
 		$scope.SerieMarvel = [];
 		var serieMarvel = {};
 		$scope.comicsDavid = [];
