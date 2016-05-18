@@ -12,11 +12,11 @@ var modulo = angular.module("heroes",["ui.router"]);
 							{name:'thor'},
 							{name:'peter parker'}
 						];
-
-		var ts="?ts=1";
+		//console.log(Date())
+		var ts="?ts=16:26:30";
 		var url = "http://gateway.marvel.com:80/v1/public/characters?name=";
 		var clave = "&apikey=0cdf30383014ad1a8efffdf602784007";
-		var hash = "&hash=06edebebd0b546ebc836d8e4e1cdf0c9";
+		var hash = "&hash=7c9f8e2ab3a58de3dd6bf02ffdbcfd73";
 		$scope.SerieMarvel = [];
 		var serieMarvel = {};
 		$scope.comicsDavid = [];
