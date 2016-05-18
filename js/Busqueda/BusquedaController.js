@@ -20,7 +20,7 @@
 		var publica = "0cdf30383014ad1a8efffdf602784007";
 		var clave = "&apikey=0cdf30383014ad1a8efffdf602784007";
 
-		var hash = "&hash="+md5.createHash(n+priv+publica);
+		var hash = "&hash="+md5.createHash(priv+publica);
 		console.log(hash)
 		$scope.SerieMarvel = [];
 		var serieMarvel = {};

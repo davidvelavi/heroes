@@ -2,6 +2,22 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 
 
 
+(function(){	
+
+
+	var loader = function(){
+		return {
+			restrict:"E",
+			templateUrl:"loader.html",
+			scope:{
+				visualiza:"=visualiza"
+			}
+		}
+	}
+
+	var modulo = angular.module("heroes");
+	modulo.directive("loader",loader);
+}());
 (function(){
 
 	var BusquedaController = function($scope,busquedaFactory,$http,md5){
@@ -24,7 +40,7 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 		var publica = "0cdf30383014ad1a8efffdf602784007";
 		var clave = "&apikey=0cdf30383014ad1a8efffdf602784007";
 
-		var hash = "&hash="+md5.createHash(n+priv+publica);
+		var hash = "&hash="+md5.createHash(priv+publica);
 		console.log(hash)
 		$scope.SerieMarvel = [];
 		var serieMarvel = {};
@@ -167,22 +183,6 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 
 	var modulo = angular.module("heroes");
 	modulo.factory("busquedaFactory", busquedaFactory)
-}());
-(function(){	
-
-
-	var loader = function(){
-		return {
-			restrict:"E",
-			templateUrl:"loader.html",
-			scope:{
-				visualiza:"=visualiza"
-			}
-		}
-	}
-
-	var modulo = angular.module("heroes");
-	modulo.directive("loader",loader);
 }());
 (function(){
 
