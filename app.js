@@ -2,22 +2,6 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 
 
 
-(function(){	
-
-
-	var loader = function(){
-		return {
-			restrict:"E",
-			templateUrl:"loader.html",
-			scope:{
-				visualiza:"=visualiza"
-			}
-		}
-	}
-
-	var modulo = angular.module("heroes");
-	modulo.directive("loader",loader);
-}());
 (function(){
 
 	var BusquedaController = function($scope,busquedaFactory,$http,md5){
@@ -34,13 +18,13 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 		console.log(n)
 
 		
-		var ts="?ts=1";
+		var ts="?ts="+n;
 		var url = "http://gateway.marvel.com:80/v1/public/characters?name=";
 		var priv = "7e467f50bbd57233bae233db88606e9f220f7674";
 		var publica = "0cdf30383014ad1a8efffdf602784007";
 		var clave = "&apikey=0cdf30383014ad1a8efffdf602784007";
 
-		var hash = "&hash="+md5.createHash(priv+publica);
+		var hash = "&hash="+md5.createHash(n+priv+publica);
 		console.log(hash)
 		$scope.SerieMarvel = [];
 		var serieMarvel = {};
@@ -63,7 +47,7 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 			{
 				$scope.VisualizarLoader1 = true;
 				$scope.ShowMensaje = false;
-				busquedaFactory.busquedaPersonaje(url+serie+clave+hash).success(function(resp){
+				busquedaFactory.busquedaPersonaje(url+serie+ts+clave+hash).success(function(resp){
 					//console.log(resp)
 					$scope.SerieMarvel = [];
 					if(resp.data.count > 0)
@@ -83,11 +67,11 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 							$scope.ShowMensaje = false;
 							for(var j = 0; j< comic.length; j++)
 							{
-								arregloComics.push($http.get(comic[j].resourceURI+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
+								arregloComics.push($http.get(comic[j].resourceURI+ts+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 							for(var j = 0; j< serie.length; j++)
 							{
-								arregloSeries.push($http.get(serie[j].resourceURI+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
+								arregloSeries.push($http.get(serie[j].resourceURI+ts+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 
 							busquedaFactory.busquedaComics(arregloComics).then(function(comics){
@@ -183,6 +167,22 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 
 	var modulo = angular.module("heroes");
 	modulo.factory("busquedaFactory", busquedaFactory)
+}());
+(function(){	
+
+
+	var loader = function(){
+		return {
+			restrict:"E",
+			templateUrl:"loader.html",
+			scope:{
+				visualiza:"=visualiza"
+			}
+		}
+	}
+
+	var modulo = angular.module("heroes");
+	modulo.directive("loader",loader);
 }());
 (function(){
 
