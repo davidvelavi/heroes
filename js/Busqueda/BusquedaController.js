@@ -15,7 +15,7 @@
 
 		
 		var ts="?ts="+n;
-		var url = "http://gateway.marvel.com:80/v1/public/characters?name=";
+		var url = "http://gateway.marvel.com:80/v1/public/characters"+ts+"&name=";
 		var priv = "7e467f50bbd57233bae233db88606e9f220f7674";
 		var publica = "0cdf30383014ad1a8efffdf602784007";
 		var clave = "&apikey=0cdf30383014ad1a8efffdf602784007";
@@ -43,7 +43,8 @@
 			{
 				$scope.VisualizarLoader1 = true;
 				$scope.ShowMensaje = false;
-				busquedaFactory.busquedaPersonaje(url+serie+ts+clave+hash).success(function(resp){
+				console.log(url+serie+ts+clave+hash)
+				busquedaFactory.busquedaPersonaje(url+serie+clave+hash).success(function(resp){
 					//console.log(resp)
 					$scope.SerieMarvel = [];
 					if(resp.data.count > 0)
