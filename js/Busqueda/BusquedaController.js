@@ -10,7 +10,8 @@
 						];
 
 		var d = new Date();
-		var n = d.getTime();
+		var n = Math.floor(d.getTime()/1000);
+		console.log(n)
 
 		
 		var ts="?ts="+n;
