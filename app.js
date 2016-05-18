@@ -14,11 +14,11 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 						];
 
 		var d = new Date();
-		var n = Math.floor(d.getTime()/1000);
+		var n = Math.round(Date.now()/1000);
 		console.log(n)
 
 		
-		var ts="?ts="+n;
+		var ts="?ts=1";
 		var url = "http://gateway.marvel.com:80/v1/public/characters?name=";
 		var priv = "7e467f50bbd57233bae233db88606e9f220f7674";
 		var publica = "0cdf30383014ad1a8efffdf602784007";
@@ -47,7 +47,7 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 			{
 				$scope.VisualizarLoader1 = true;
 				$scope.ShowMensaje = false;
-				busquedaFactory.busquedaPersonaje(url+serie+ts+clave+hash).success(function(resp){
+				busquedaFactory.busquedaPersonaje(url+serie+clave+hash).success(function(resp){
 					//console.log(resp)
 					$scope.SerieMarvel = [];
 					if(resp.data.count > 0)
@@ -67,11 +67,11 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 							$scope.ShowMensaje = false;
 							for(var j = 0; j< comic.length; j++)
 							{
-								arregloComics.push($http.get(comic[j].resourceURI+ts+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
+								arregloComics.push($http.get(comic[j].resourceURI+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 							for(var j = 0; j< serie.length; j++)
 							{
-								arregloSeries.push($http.get(serie[j].resourceURI+ts+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
+								arregloSeries.push($http.get(serie[j].resourceURI+"?"+"apikey=0cdf30383014ad1a8efffdf602784007"+hash));
 							}
 
 							busquedaFactory.busquedaComics(arregloComics).then(function(comics){
