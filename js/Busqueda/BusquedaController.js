@@ -46,7 +46,8 @@
 					//console.log(resp)
 					$scope.SerieMarvel = [];
 					if(resp.data.count > 0)
-					{
+					{		$scope.comicsDavid = [];
+							$scope.serieDavid = [];
 							var item = resp.data.results[0];
 							serieMarvel.nombreSerie = serie;
 							serieMarvel.imagen = item.thumbnail.path +"."+item.thumbnail.extension;

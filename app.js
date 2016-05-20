@@ -50,7 +50,8 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 					//console.log(resp)
 					$scope.SerieMarvel = [];
 					if(resp.data.count > 0)
-					{
+					{		$scope.comicsDavid = [];
+							$scope.serieDavid = [];
 							var item = resp.data.results[0];
 							serieMarvel.nombreSerie = serie;
 							serieMarvel.imagen = item.thumbnail.path +"."+item.thumbnail.extension;
@@ -169,22 +170,6 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 	var modulo = angular.module("heroes");
 	modulo.factory("busquedaFactory", busquedaFactory)
 }());
-(function(){	
-
-
-	var loader = function(){
-		return {
-			restrict:"E",
-			templateUrl:"loader.html",
-			scope:{
-				visualiza:"=visualiza"
-			}
-		}
-	}
-
-	var modulo = angular.module("heroes");
-	modulo.directive("loader",loader);
-}());
 (function(){
 
 	var menuShow = function(){
@@ -223,6 +208,22 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 	modulo.directive("menu",menu);
 }());
 
+(function(){	
+
+
+	var loader = function(){
+		return {
+			restrict:"E",
+			templateUrl:"loader.html",
+			scope:{
+				visualiza:"=visualiza"
+			}
+		}
+	}
+
+	var modulo = angular.module("heroes");
+	modulo.directive("loader",loader);
+}());
 (function(){
 
 	var rutas = function($stateProvider,$urlRouterProvider){
