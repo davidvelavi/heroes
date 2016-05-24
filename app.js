@@ -170,6 +170,22 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 	var modulo = angular.module("heroes");
 	modulo.factory("busquedaFactory", busquedaFactory)
 }());
+(function(){	
+
+
+	var loader = function(){
+		return {
+			restrict:"E",
+			templateUrl:"loader.html",
+			scope:{
+				visualiza:"=visualiza"
+			}
+		}
+	}
+
+	var modulo = angular.module("heroes");
+	modulo.directive("loader",loader);
+}());
 (function(){
 
 	var menuShow = function(){
@@ -208,22 +224,6 @@ var modulo = angular.module("heroes",["ui.router",'angular-md5']);
 	modulo.directive("menu",menu);
 }());
 
-(function(){	
-
-
-	var loader = function(){
-		return {
-			restrict:"E",
-			templateUrl:"loader.html",
-			scope:{
-				visualiza:"=visualiza"
-			}
-		}
-	}
-
-	var modulo = angular.module("heroes");
-	modulo.directive("loader",loader);
-}());
 (function(){
 
 	var rutas = function($stateProvider,$urlRouterProvider){

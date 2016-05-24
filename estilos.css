@@ -92,6 +92,10 @@
 .Buscador {
   width: 90%;
   margin: 0 auto; }
+  .Buscador-MensajeHttp {
+    font-size: 12px;
+    font-weight: bold;
+    color: #A93C51; }
   .Buscador-ContCampo {
     width: 100%;
     position: relative;
